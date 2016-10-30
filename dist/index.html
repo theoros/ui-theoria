@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ui.engineering">
+<html lang="en" ng-app="ui.theoria">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UI Engineering — D3 Angular components — Angular Material</title>
+    <title>UI Theoria — UI Engineering with Angular and D3</title>
     <!-- Dependencies-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css">
     <!-- Demo styles-->
     <link rel="stylesheet" href="app/app.css">
     <link rel="stylesheet" href="fluid-svg/fluid-svg.css">
@@ -23,7 +23,7 @@
             <md-card-avatar>
               <md-icon>widgets</md-icon>
             </md-card-avatar>
-            <md-card-header-text><span class="md-headline">Fluid SVG</span><span class="md-subhead">UI Engineering</span></md-card-header-text>
+            <md-card-header-text><span class="md-headline">Fluid SVG</span><span class="md-subhead">UI Theoria</span></md-card-header-text>
           </md-card-header>
           <md-card-content>
             <div class="demo" layout="row" layout-align="space-between center">
@@ -48,11 +48,12 @@
             <md-card-avatar>
               <md-icon>widgets</md-icon>
             </md-card-avatar>
-            <md-card-header-text><span class="md-headline">Configurable SVG</span><span class="md-subhead">UI Engineering</span></md-card-header-text>
+            <md-card-header-text><span class="md-headline">Configurable SVG</span><span class="md-subhead">UI Theoria</span></md-card-header-text>
           </md-card-header>
           <md-card-content>
+            <p>The width and height below, are not the real width and height of the SVG element. They represent the aspect ratio you want it to have.<br>Nevertheless, they will determine the quantities you use for positioning stuff in it (that is, until you start using D3 scales, then it won't matter much).</p>
             <div class="inputs">
-              <p>The width and height below, are not the real width and height of the SVG element. They represent the aspect ratio you want it to have.<br>Nevertheless, they will determine the quantities you use for positioning stuff in it (that is, until you start using D3 scales, then it won't matter much).</p>
+              <md-button class="md-accent md-raised md-icon-button" href ng-click="vm.doubleValues()"><span>x2</span></md-button>
               <md-input-container>
                 <label>Width</label>
                 <input min="1" ng-model="vm.width" size="7" type="number">
@@ -61,12 +62,19 @@
                 <label>Height</label>
                 <input min="1" ng-model="vm.height" size="7" type="number">
               </md-input-container><span> Aspect ratio: <strong>{{ vm.width/vm.height | number:3 }}:1</strong></span>
-              <blockquote>
-                <p>What this means is: I want its <strong>width</strong> to be {{ vm.width/vm.height | number:3 }} times as it's tall.<br>It also means: I want its <strong>height</strong> to be {{ vm.height/vm.width | number:3 }} times as it's wide.</p>
-              </blockquote>
-              <p>Some common aspect ratio proportions (click on them):</p>
+            </div>
+            <blockquote>
+              <p>What this means is: I want its <strong>width</strong> to be {{ vm.width/vm.height | number:3 }} times as it's tall.<br>It also means: I want its <strong>height</strong> to be {{ vm.height/vm.width | number:3 }} times as it's wide.</p>
+            </blockquote>
+          </md-card-content>
+          <md-divider></md-divider>
+          <md-card-content>
+            <div class="buttons">
+              <p>Here are some common <strong>aspect ratio</strong> samples:</p>
               <md-button class="md-raised" href ng-click="vm.setAspectRatio( aspectRatio.value )" ng-repeat="aspectRatio in vm.commonAspectRatios"><span>{{ aspectRatio.label }}</span><small> {{ aspectRatio.value }}</small></md-button>
-              <p>Here below you'll see three instances of the <strong>configurable-svg</strong> component that react to width and height changes:</p>
+              <p>Here below you'll see three instances of the <strong>configurable-svg</strong> component that react to width and height changes.<br>
+                <p><em>The small yellow square is 5x5 and it's positioned at (1,1) coordinates.</em></p>
+              </p>
             </div>
             <div class="demo" style="width: 100px; float:left"><small>.demo 100px</small>
               <configurable-svg width="vm.width" height="vm.height"></configurable-svg>
@@ -89,10 +97,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
     <!-- Demo code-->
-    <script src="app/app-md.module.js"></script>
+    <script src="app/app.module.js"></script>
     <script src="app/app.controller.js"></script>
     <script src="fluid-svg/fluid-svg.component.js"></script>
-    <script src="configurable-svg/configurable-svg.controller.js"></script>
     <script src="configurable-svg/configurable-svg.component.js"></script>
   </body>
 </html>

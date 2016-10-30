@@ -8,7 +8,7 @@
     template: '<div class="container"></div>'
   };
 
-  angular.module( 'ui.engineering' ).component( 'fluidSvg', fluidSvg );
+  angular.module( 'ui.theoria' ).component( 'fluidSvg', fluidSvg );
 
 
   function controller( $element, $log ) {

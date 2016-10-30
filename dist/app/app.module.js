@@ -2,5 +2,5 @@
   'use strict';
 
   // Add Angular Material dependency
-  angular.module( 'ui.engineering', ['ngMaterial'] );
+  angular.module( 'ui.theoria', ['ngMaterial'] );
 } )();

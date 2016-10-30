@@ -11,7 +11,7 @@
     template: '<div class="container"></div>'
   };
 
-  angular.module( 'ui.engineering' ).component( 'configurableSvg', configurableSvg );
+  angular.module( 'ui.theoria' ).component( 'configurableSvg', configurableSvg );
 
 
   function controller( $element, $log ) {
@@ -19,6 +19,7 @@
 
     vm.$onChanges = $onChanges;
     vm.$onInit = $onInit;
+    vm.$postLink = $postLink;
 
 
     function $onChanges( changes ) {
@@ -39,8 +40,20 @@
 
     function $onInit() {
       $log.info( 'configurableSvg', configurableSvg );
+    }
 
+    function $postLink() {
       visualizationSetup();
+      demoAddRect();
+    }
+
+    function demoAddRect() {
+      vm.svg.append( 'rect' )
+        .classed( 'little-rect', true )
+        .attr( 'x', 1 )
+        .attr( 'y', 1 )
+        .attr( 'width', 5 )
+        .attr( 'height', 5 )
     }
 
     function viewBoxUpdate() {
@@ -54,8 +67,9 @@
       vm.container = $element[0].querySelector( '.container' );
 
       vm.svg = d3.select( vm.container )
-        .append( 'svg' )
-        .attr( 'viewBox', '0 0 ' + vm.width + ' ' + vm.height );
+        .append( 'svg' );
+
+      viewBoxUpdate();
     }
   }
 } )();

@@ -1,0 +1,33 @@
+{
+  "name": "ui-theoria",
+  "version": "0.0.1",
+  "description": "UI Engineering examples with Angular and D3.",
+  "main": "index.js",
+  "repository": "theoros/ui-theoria",
+  "author": "theoros <ui.theoria@gmail.com>",
+  "license": "MIT",
+  "tags": [
+    "angular",
+    "angular material",
+    "d3",
+    "data visualization",
+    "examples",
+    "material design",
+    "svg",
+    "ui",
+    "ui engineering"
+  ],
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "del": "^2.2.2",
+    "eslint": "^3.9.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-pug": "^3.1.0",
+    "gulp-sass": "^2.3.2"
+  }
+}

@@ -1,14 +1,18 @@
-# UI Engineering
+# UI Theoria
 
 
-## Useful UI snippets for D3 Angular components and more
+## UI Engineering with Angular and D3
 
 Mostly [Angular](https://angularjs.org/), [D3](https://d3js.org/) and [ES5](http://kangax.github.io/compat-table/es5/) code, with a dash of Angular Material.
 
-The HTML files are generated from [Pug](https://pugjs.org) files, which I consider a more comfortable way to _write_ & _read_ HTML, go ahead and compare the two files.
+This project's HTML files are generated from [Pug](https://pugjs.org) files, which I consider a more comfortable way
+to _write_ & _read_ HTML (go ahead and compare the two, I'll wait for you).
+
 CSS files are generated from [Sass](http://sass-lang.com/) files, same reasons apply for using it over plain CSS.
 
-Just `git clone` and open `index.html` in your browser to see the components in action.
+
+To see the components in action just `git clone` and open `dist/index.html`.
+
 
 Versions for the libraries used:
 
@@ -22,44 +26,55 @@ In this folder you'll find the template I use every time I have to create a new 
 
 It's the easiest way to setup a new SVG element that's fluid and preserves the aspect ratio when resizing the window.
 
-Some important stuff to observe about this is that it's self-sufficient. It includes a mini template that's going to be the container for the visualization (SVG).
-It does not need an external template, but it could be added in case you need a more complex layout.
-Nevertheless I'd advise against it, since that should be done on the parent elements.
+Some important stuff to observe about this is that it's self-sufficient. It includes a mini template inside the
+component definition that's going to be the container for the SVG element.
 
-Resize the browser and see how it the aspect ratio is preserved.
+It does not need an external template, but it could be added in case you really needed a more complex layout.
+Nevertheless I'd advise against it, since that should be done on parent elements.
+
+Resize the browser and see how the aspect ratio is preserved.
+
 
 
 ### configurable-svg
 
 Here you'll find an example for an Angular component that reacts to changes to its width and height.
 
-This example builds on `fluid-svg`, and shows how to update the SVG element with D3 when the component's attributes are modified.
+This example builds on `fluid-svg`, and shows how to update the SVG element with D3 when the component's attributes
+are modified.
 
+Also, I discuss a bit about aspect ratios and why they are important for the SVG viewBox attribute.
 
-## Plain version
-
-If you want to see the demos with a minimal look & feel, open the `index.html` file.
 
 
 ## Material Design version with [Angular Material](https://material.angularjs.org/latest/)
 
-If you want to see the demos with a Material Design look & feel, open the `index-md.html` file.
-There you can see how the component is reused in a different UI context, with minimal effort.
+If you want to see all the demos with a Material Design look & feel, open the `dist/index.html` file.
 
 
-## Recommendations
+## Plain version
 
-When doing web development you should be using something that reloads your browser whenever you change your files.
+If you want to see a couple of demos with a minimal look & feel, open the `dist/index-plain.html` file.
 
-If you are not, then do yourself a favor and checkout [Browsersync](https://browsersync.io/)
+You can see how the components are reused in a different UI context, with minimal effort.
 
-The command I use when implementing these demos is something like this:
 
-```
-browser-sync start --server --files '*.html' 'app/**/*.js' 'app/**/*.css' 'fluid-svg/**/*.js' 'fluid-svg/**/*.css' 'configurable-svg/**/*.js' 'configurable-svg/**/*.css'
-```
+## Play with it
 
-I know, I know, I'll be setting up `gulp` soon.
+After cloning the repo, you need to install `yarn`:
+
+    npm install -g yarn
+
+
+Then install all the project's dependencies:
+
+    yarn install
+
+
+Then start the development server:
+
+    yarn start
+
 
 Enjoy. ;)
 

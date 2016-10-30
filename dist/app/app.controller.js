@@ -7,19 +7,21 @@
   //
   // I will use this controller for setting demo variables
 
-  angular.module( 'ui.engineering' ).controller( 'AppController', AppController );
+  angular.module( 'ui.theoria' ).controller( 'AppController', AppController );
 
   function AppController( $log ) {
     var vm = this;
 
     vm.$onInit = $onInit;
     vm.setAspectRatio = setAspectRatio;
+    vm.doubleValues = doubleValues;
 
 
     function $onInit() {
       $log.info( 'AppController', vm );
 
       vm.demos = ['fluid-svg', 'configurable-svg'];
+
       // Set initial demo
       vm.demo = vm.demos[1];
 
@@ -30,7 +32,7 @@
       // List of known aspect ratios
       vm.commonAspectRatios = [
         {
-          value:'21:9',
+          value: '21:9',
           label: 'Cinema'
         },
         {
@@ -38,10 +40,15 @@
           label: 'Modern monitor'
         },
         {
-          value:'4:3',
+          value: '4:3',
           label: 'Old monitor'
         }
       ];
+    }
+
+    function doubleValues() {
+      vm.width = vm.width * 2;
+      vm.height = vm.height * 2;
     }
 
     function setAspectRatio( aspectRatio ) {
